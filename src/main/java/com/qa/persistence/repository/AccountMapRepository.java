@@ -13,7 +13,6 @@ public class AccountMapRepository implements AccountRepository{
 	Map<Long, Account> account = new HashMap<>();
 
 	JSONUtil util = new JSONUtil();
-	hhhhh
 	public String getAllAccounts() {
 		 
 		return util.getJSONForObject(account);
@@ -21,15 +20,15 @@ public class AccountMapRepository implements AccountRepository{
  
 	public String createAccount(String accountIn) {
 		
-		Account anAccount;
+		Account anAccount; 
 		anAccount = util.getObjectForJSON(accountIn, Account.class);
 		this.account.put(anAccount.getAccountNumber(), anAccount);
 		
-		return "Created Account";
+		return "Created Account"; 
 	}  
  
 	public String deleteAccount(Long id) {
-		 
+		  
 		if (account != null) {   
 			account.remove(id);
 			return("Account successfully deleted");
@@ -43,7 +42,17 @@ public class AccountMapRepository implements AccountRepository{
 		Account anAccount = util.getObjectForJSON(account, Account.class);
 		this.account.put(id, anAccount);
 		return util.getJSONForObject(anAccount);
-		
+		 
 	}
 
+	public long AccountCount(String name) {
+		int count = 0; 
+		for (Long key : account.keySet()) {
+			if (account.get(key).getFirstName().equals(name)) {
+				count++;
+			} 
+		} 
+		System.out.println(count); 
+		return count;
+	}
 }
