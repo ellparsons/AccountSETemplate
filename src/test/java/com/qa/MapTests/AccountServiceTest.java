@@ -20,21 +20,22 @@ public class AccountServiceTest {
 	
 	@Before
 	public void setup() {
+		
 	}
-	 
+	  
 	@Test
 	public void addAccountTest() {
 		Account account = new Account("test","test",1);
 		
 		String newAccount = js.getJSONForObject(account);
-		
+		 
 		accounts.createAccount(newAccount);  
 		
 		account = js.getObjectForJSON(newAccount, Account.class);
 		
 		assertEquals("Account created",1, account.getAccountNumber());
 		 
-	}
+	} 
 	  
 	@Test
 	public void add2AccountTest() {
@@ -106,17 +107,43 @@ public class AccountServiceTest {
 	public void accountConversionToJSONTest() {
 		
 	}
-
-	@Test
-	public void getCountForFirstNamesInAccountWhenZeroOccurances() {
-		
-	}
 	
 	@Test
-	public void getCountForFirstNamesInAccountWhenOne() {
+	public void getCountForFirstNamesInAccountWhenZeroOccurances() {
+		Account account = new Account("Bob","Smith",7);
+		String newAccount = js.getJSONForObject(account);
+		accounts.createAccount(newAccount); 
 		
+		assertEquals(0,accounts.AccountCount("John"));
+		accounts.deleteAccount(1l);  
+	}   
+	    
+	@Test
+	public void getCountForFirstNamesInAccountWhenOne() {
+		Account account = new Account("John","Smith",7);
+		String newAccount = js.getJSONForObject(account);
+		accounts.createAccount(newAccount); 
+		
+		assertEquals(1,accounts.AccountCount("John"));
+		accounts.deleteAccount(1l);  
 	}
-
+ 
+	@Test
+	public void getCountForFirstNamesInAccountWhenTwo() {
+		Account account = new Account("John","Smith",1);
+		Account account1 = new Account("John","Smith",2);
+		
+		String newAccount = js.getJSONForObject(account);
+		String newAccount1 = js.getJSONForObject(account1);
+		
+		accounts.createAccount(newAccount); 
+		accounts.createAccount(newAccount1); 
+		
+		assertEquals(2,accounts.AccountCount("John"));
+		accounts.deleteAccount(1l);   
+		accounts.deleteAccount(2l);  
+	}
+	
 	@Test
 	public void getCountForFirstNamesInAccountWhenMult() {
 		
