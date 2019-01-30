@@ -3,14 +3,12 @@ package com.qa.persistence.repository;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
-
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.util.JSONUtil;
 
 public class AccountMapRepository implements AccountRepository{
 	
-	Map<Long, Account> account = new HashMap<>();
+	Map<Long, Account> account = new HashMap<Long, Account>();
 
 	JSONUtil util = new JSONUtil();
 	public String getAllAccounts() {
@@ -30,8 +28,8 @@ public class AccountMapRepository implements AccountRepository{
 	public String deleteAccount(Long id) {
 		  
 		if (account != null) {   
-			account.remove(id);
-			return("Account successfully deleted");
+			account.remove(id); 
+			return("Account successfully deleted");  
 			}
 		else {
 			return("Error: No account exists"); 		}
@@ -45,14 +43,13 @@ public class AccountMapRepository implements AccountRepository{
 		 
 	}
 
-	public long AccountCount(String name) {
+	public long accountCount(String name) {
 		int count = 0; 
 		for (Long key : account.keySet()) {
 			if (account.get(key).getFirstName().equals(name)) {
 				count++;
 			} 
 		} 
-		System.out.println(count); 
 		return count;
 	}
 }

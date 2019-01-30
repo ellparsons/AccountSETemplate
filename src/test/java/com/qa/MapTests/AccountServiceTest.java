@@ -114,17 +114,17 @@ public class AccountServiceTest {
 		String newAccount = js.getJSONForObject(account);
 		accounts.createAccount(newAccount); 
 		
-		assertEquals(0,accounts.AccountCount("John"));
+		assertEquals(0,accounts.accountCount("John"));   
 		accounts.deleteAccount(1l);  
 	}   
 	    
 	@Test
 	public void getCountForFirstNamesInAccountWhenOne() {
-		Account account = new Account("John","Smith",7);
+		Account account = new Account("John","Smith",7);   
 		String newAccount = js.getJSONForObject(account);
 		accounts.createAccount(newAccount); 
 		
-		assertEquals(1,accounts.AccountCount("John"));
+		assertEquals(1,accounts.accountCount("John"));
 		accounts.deleteAccount(1l);  
 	}
  
@@ -139,7 +139,7 @@ public class AccountServiceTest {
 		accounts.createAccount(newAccount); 
 		accounts.createAccount(newAccount1); 
 		
-		assertEquals(2,accounts.AccountCount("John"));
+		assertEquals(2,accounts.accountCount("John"));
 		accounts.deleteAccount(1l);   
 		accounts.deleteAccount(2l);  
 	}
