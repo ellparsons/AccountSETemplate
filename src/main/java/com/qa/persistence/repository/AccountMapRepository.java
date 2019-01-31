@@ -1,5 +1,6 @@
 package com.qa.persistence.repository;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.inject.Alternative;
@@ -11,8 +12,7 @@ import com.qa.persistence.util.JSONUtil;
 @Alternative
 public class AccountMapRepository implements AccountRepository{
 	
-	@Inject
-	Map<Long, Account> account;
+	Map<Long, Account> account = new HashMap<Long, Account>();
 	
 	@Inject
 	JSONUtil util;
