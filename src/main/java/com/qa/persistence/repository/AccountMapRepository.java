@@ -40,7 +40,7 @@ public class AccountMapRepository implements AccountRepository{
 		else {
 			return("Error: No account exists"); 		}
 	}   
-
+  
 	public String updateAccount(Long id, String account) {
 		
 		Account anAccount = util.getObjectForJSON(account, Account.class);
@@ -56,5 +56,11 @@ public class AccountMapRepository implements AccountRepository{
 			} 
 		} 
 		return count;
+	}
+
+	public String findAnAccount(Long id) {
+		 
+		return util.getJSONForObject(account.get(id));
+		
 	}
 }

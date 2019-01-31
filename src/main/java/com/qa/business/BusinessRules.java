@@ -19,6 +19,11 @@ public class BusinessRules implements BusinessRepository {
 		return accRepo.getAllAccounts();		
 	}
 
+	public String getAnAccount(Long id) {
+		
+		return accRepo.findAnAccount(id);
+	}
+	
 	public String createAccount(String account) {
 		
 		Account anAccount;
@@ -31,7 +36,7 @@ public class BusinessRules implements BusinessRepository {
 			return("Account created");
 		}
 	}
-xx
+
 	public String deleteAccount(Long id) {
 		
 		return accRepo.deleteAccount(id);
