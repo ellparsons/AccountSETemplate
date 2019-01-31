@@ -13,14 +13,14 @@ public class Account {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(length = 40)
 	private String firstName;
 	
-	@Column(length = 40)
 	private String lastName;
 	
-	@Column(length = 10)
 	private long accountNumber;
+	
+	public Account() {
+	}
 	
 	public Account(String firstName, String lastName, long accountNumber) {
 		this.firstName=firstName; 
