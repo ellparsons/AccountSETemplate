@@ -25,7 +25,7 @@ public class AccountMapRepository implements AccountRepository{
 		return "Created Account"; 
 	}  
  
-	public String deleteAccount(Long id) {
+	public String deleteAccount(Long id) { 
 		  
 		if (account != null) {   
 			account.remove(id); 
@@ -40,7 +40,6 @@ public class AccountMapRepository implements AccountRepository{
 		Account anAccount = util.getObjectForJSON(account, Account.class);
 		this.account.put(id, anAccount);
 		return util.getJSONForObject(anAccount);
-		 
 	}
 
 	public long accountCount(String name) {
