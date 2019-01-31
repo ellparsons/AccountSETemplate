@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.inject.Default;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,7 @@ import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.AccountMapRepository;
 import com.qa.persistence.util.JSONUtil;
 
+@Default
 public class AccountServiceTest {
 
 	JSONUtil js = new JSONUtil();
@@ -20,7 +23,7 @@ public class AccountServiceTest {
 	
 	@Before
 	public void setup() {
-		
+		 
 	}
 	  
 	@Test
