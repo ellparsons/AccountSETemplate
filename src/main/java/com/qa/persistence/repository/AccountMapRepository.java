@@ -23,12 +23,10 @@ public class AccountMapRepository implements AccountRepository{
 	}  
  
 	public String createAccount(String accountIn) {
-		
-		Account anAccount; 
-		anAccount = util.getObjectForJSON(accountIn, Account.class);
+		 
+		Account anAccount = util.getObjectForJSON(accountIn, Account.class);
 		this.account.put(anAccount.getAccountNumber(), anAccount);
-		
-		return "Created Account"; 
+		return util.getJSONForObject(anAccount); 
 	}  
  
 	public String deleteAccount(Long id) { 
@@ -61,6 +59,5 @@ public class AccountMapRepository implements AccountRepository{
 	public String findAnAccount(Long id) {
 		 
 		return util.getJSONForObject(account.get(id));
-		
 	}
 }

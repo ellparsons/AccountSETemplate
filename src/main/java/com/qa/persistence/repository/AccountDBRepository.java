@@ -37,7 +37,7 @@ public class AccountDBRepository implements AccountRepository{
 	public String createAccount(String account) {
 		Account newAccount = util.getObjectForJSON(account, Account.class);
 		em.persist(newAccount);
-		return (util.getJSONForObject(newAccount)); 
+		return (util.getJSONForObject(newAccount));  
 	}
 	
 	@Transactional(REQUIRED)       
